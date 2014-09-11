@@ -8,8 +8,7 @@ class TodosController < UIViewController
     @table.dataSource = self
     self.view.addSubview(@table)
 
-    @data = %w(Milk Orange\ Juice Apples Bananas Broccoli Carrots Beef Chicken Enchiladas Hot\ Dogs Butter Bread Pasta Rice)
-    @data.map! { |d| "Buy #{d}" }
+    @data = Todo.all
   end
 
   def tableView(tableView, numberOfRowsInSection:section)
@@ -18,7 +17,7 @@ class TodosController < UIViewController
 
   def tableView(tableView, cellForRowAtIndexPath:indexPath)
     cell = UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier:nil)
-    cell.textLabel.text = @data[indexPath.row]
+    cell.textLabel.text = @data[indexPath.row].name
     cell
   end
 end
