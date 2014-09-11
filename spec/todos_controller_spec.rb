@@ -1,8 +1,9 @@
-describe "Todos View" do
+describe 'Todos Controller' do
+
+  tests TodosController
+
   before do
-    @app = UIApplication.sharedApplication
-    @delegate = @app.delegate
-    @table = @delegate.instance_variable_get("@table")
+    @table = controller.instance_variable_get("@table")
   end
 
   it 'should exist' do
@@ -17,4 +18,6 @@ describe "Todos View" do
     first_cell = @table.visibleCells.first
     first_cell.textLabel.text.should == 'Buy Milk'
   end
+
+
 end

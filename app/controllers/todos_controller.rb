@@ -1,7 +1,7 @@
 class TodosController < UIViewController
   attr_writer :data
 
-  def ViewDidLoad
+  def viewDidLoad
     super
     self.title = 'Okonawa'
     @table = UITableView.alloc.initWithFrame(self.view.bounds)
@@ -9,6 +9,7 @@ class TodosController < UIViewController
     self.view.addSubview(@table)
 
     @data = %w(Milk Orange\ Juice Apples Bananas Broccoli Carrots Beef Chicken Enchiladas Hot\ Dogs Butter Bread Pasta Rice)
+    @data.map! { |d| "Buy #{d}" }
   end
 
   def tableView(tableView, numberOfRowsInSection:section)
