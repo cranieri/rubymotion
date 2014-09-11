@@ -1,9 +1,12 @@
 describe "Todo Model" do
   before do
-    @todo = Todo.new
+    @now = NSDate.new
+    @todo = Todo.new :name => "Buy Milk",
+                     :description => "We need some Milk",
+                     :due_date => @now
   end
 
-  it "exists" do
+  it 'exists' do
     Object.const_defined?('Todo').should.be.true
   end
 
@@ -17,5 +20,13 @@ describe "Todo Model" do
   it 'is invalid without a name' do
     @todo.name = nil
     @todo.should.not.be.valid
+  end
+
+  it 'is not done by default' do
+    @todo.done.should.not.be.true
+  end
+
+  it 'knows if its overdue' do
+    @todo.should.be.overdue
   end
 end
