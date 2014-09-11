@@ -4,10 +4,6 @@ class TodosController < UITableViewController
   def viewDidLoad
     super
     self.title = 'Okonawa'
-    # @table = UITableView.alloc.initWithFrame(self.view.bounds)
-    # @table.dataSource = self
-    # self.view.addSubview(@table)
-
     @data = Todo.all
   end
 
