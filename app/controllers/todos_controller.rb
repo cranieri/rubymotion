@@ -1,12 +1,12 @@
-class TodosController < UIViewController
+class TodosController < UITableViewController
   attr_writer :data
 
   def viewDidLoad
     super
     self.title = 'Okonawa'
-    @table = UITableView.alloc.initWithFrame(self.view.bounds)
-    @table.dataSource = self
-    self.view.addSubview(@table)
+    # @table = UITableView.alloc.initWithFrame(self.view.bounds)
+    # @table.dataSource = self
+    # self.view.addSubview(@table)
 
     @data = Todo.all
   end
